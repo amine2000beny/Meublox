@@ -133,7 +133,7 @@ const ProductsAdmin = (props) => {
             })
         };
 
-        fetch(`http://localhost:8000/products/${inputs.id}`, requestOptionsFirst)
+        fetch(`${process.env.REACT_APP_API_URL}/products/${inputs.id}`, requestOptionsFirst)
             .then(response => {
                 response.json();
             })

@@ -68,7 +68,7 @@ const Password = (props) => {
                     password: inputs.newPassword
                 })
             };
-            let response = await fetch(`http://localhost:8000/users/${userId}`, requestOptions);
+            let response = await fetch(`${process.env.REACT_APP_API_URL}/users/${userId}`, requestOptions);
             let result = response.json;
             console.log(result)
 

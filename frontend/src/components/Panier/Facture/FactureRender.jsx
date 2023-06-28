@@ -21,7 +21,7 @@ const FactureRender = () => {
 
         await dataCall()
 
-        let request = await fetch(`http://localhost:8000/orders/${orderId}`, {
+        let request = await fetch(`${process.env.REACT_APP_API_URL}/orders/${orderId}`, {
             method: 'GET',
         })
         let orderById = await request.json();
@@ -34,7 +34,7 @@ const FactureRender = () => {
 
     const dataCall = async (requestOptions) => {
 
-        let responseData = await fetch("http://localhost:8000/products", requestOptions);
+        let responseData = await fetch(`${process.env.REACT_APP_API_URL}/products`, requestOptions);
         const responseDataInJSON = await responseData.json();
         setAllData(responseDataInJSON)
 

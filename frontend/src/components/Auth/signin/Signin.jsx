@@ -29,7 +29,7 @@ const Signin = () => {
         }
         formBody = formBody.join("&");
 
-        let request = await fetch('http://127.0.0.1:8000/login', {
+        let request = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
@@ -64,7 +64,7 @@ const Signin = () => {
                 is_admin: false
             })
         };
-        let response = await fetch("http://localhost:8000/users", requestOptions);
+        let response = await fetch(`${process.env.REACT_APP_API_URL}/users`, requestOptions);
         const responseInJSON = await response.json();
     }
 

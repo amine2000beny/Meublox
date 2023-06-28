@@ -22,7 +22,7 @@ const ForgotPassword = () => {
             })
         };
         try {
-            let response = await fetch("http://localhost:8000/reset-password", requestOptions);
+            let response = await fetch( `${process.env.API_URL}/reset-password`, requestOptions);
             const responseInJSON = await response.json();
             console.log(responseInJSON.message)
             setIsSend(true)

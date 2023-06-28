@@ -17,7 +17,7 @@ const Searchbar = () => {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
-            let response = await fetch("http://localhost:8000/products", requestOptions);
+            let response = await fetch(`${process.env.REACT_APP_API_URL}/products`, requestOptions);
             const responseInJSON = await response.json();
             setProducts(responseInJSON)
             setIsLoad(true)

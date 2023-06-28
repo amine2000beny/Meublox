@@ -15,7 +15,7 @@ const ObjectsList = (props) => {
 
     useEffect(() => {
         let currentUrl = window.location.href
-        if (currentUrl == "http://localhost:3000/") {
+        if (currentUrl == `${process.env.REACT_APP_API_URL}/`) {
 
             const objectsData = allData.sort((a, b) => b.note - a.note);
 
@@ -33,7 +33,7 @@ const ObjectsList = (props) => {
             const objectsDataPopular = allData.filter((product) => product.nom.includes(type));
             setData(objectsDataPopular)
         }
-        if (currentUrl == "http://localhost:3000/products") {
+        if (currentUrl == `${process.env.REACT_APP_API_URL}/products`) {
 
             const objectsDataPopular = allData.sort((a, b) => b.Rate - a.Rate);
             setData(objectsDataPopular)

@@ -39,7 +39,7 @@ const Paiement = () => {
 
     const dataCall = async (requestOptions) => {
 
-        let responseData = await fetch("http://localhost:8000/products", requestOptions);
+        let responseData = await fetch(`${process.env.REACT_APP_API_URL}/products`, requestOptions);
         const responseDataInJSON = await responseData.json();
         setAllData(responseDataInJSON)
 
@@ -52,7 +52,7 @@ const Paiement = () => {
         };
         await dataCall(requestOptions)
 
-        let response = await fetch(`http://localhost:8000/cart/${userId}`, requestOptions);
+        let response = await fetch(`${process.env.REACT_APP_API_URL}/cart/${userId}`, requestOptions);
         const responseInJSON = await response.json();
         console.log(responseInJSON)
         if (responseInJSON.detail == "Cart not found") {
@@ -171,9 +171,9 @@ const Paiement = () => {
             };
 
             try {
-                let response = await fetch(`http://localhost:8000/orders`, requestOptions);
+                let response = await fetch(`${process.env.REACT_APP_API_URL}/orders`, requestOptions);
                 console.log(response)
-                let result = await fetch(`http://localhost:8000/cart/${userId}`, {
+                let result = await fetch(`${process.env.REACT_APP_API_URL}/cart/${userId}`, {
                     method: 'DELETE',
                     headers: { 'Content-Type': 'application/json' }
                 })

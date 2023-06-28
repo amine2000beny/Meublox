@@ -32,7 +32,7 @@ const NewPassword = () => {
             })
         };
         if (password == passwordTwo) {
-            fetch(`http://localhost:8000/users/${params.user_id}`, requestOptions)
+            fetch(`${process.env.API_URL}/users/${params.user_id}`, requestOptions)
                 .then(response => {
                     response.json();
                     navigate('/login')
